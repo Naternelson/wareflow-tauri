@@ -1,5 +1,4 @@
 import {
-
 	getDocs,
 	where,
 	query,
@@ -23,15 +22,15 @@ export enum OrderStatus {
 export interface DBCase {
 	id: string;
 	orderId: string;
-    count: number;
-    customId: string;
+	count: number;
+	customId: string;
 	createdOn: FieldValue;
 	updatedOn: FieldValue;
 }
 export interface CaseBuild {
 	orderId: string;
-    count: number;
-    customId: string;
+	count: number;
+	customId: string;
 }
 export interface Case extends CaseBuild {
 	id: string;
@@ -39,9 +38,9 @@ export interface Case extends CaseBuild {
 	updatedOn: string;
 }
 
-type Build = CaseBuild 
-type Model = Case
-type DBModel = DBCase
+type Build = CaseBuild;
+type Model = Case;
+type DBModel = DBCase;
 export class CasesCollection extends BaseModel<Model, DBModel, Build> {
 	name: string = "Case";
 	collectionName = "cases";
@@ -93,51 +92,50 @@ export class CasesCollection extends BaseModel<Model, DBModel, Build> {
 		const docRef = await getDocs(this.collection);
 		return docRef.docs.map((doc) => doc.data());
 	};
-    getByOrder = async (orderId: string): Promise<Model[]> => {
-        const docRef = await getDocs(query(this.collection, where("orderId", "==", orderId)));
-        return docRef.docs.map((doc) => doc.data());
-    }
+	getByOrder = async (orderId: string): Promise<Model[]> => {
+		const docRef = await getDocs(query(this.collection, where("orderId", "==", orderId)));
+		return docRef.docs.map((doc) => doc.data());
+	};
 
 	update = async (model: Model): Promise<Model> => {
 		await setDoc(doc(this.collection, model.id), model);
 		return model;
 	};
-    genCaseID = ():string => {
-        const now =  new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() +1).padStart(2, "0");
-        const day = String(now.getDate()).padStart(2, "0");
-        return `${year}${month}${day}001`
-
-    }
-    nextCase = async (orderId: string): Promise<Model> => {
-        const standardId = this.genCaseID();
-        const docRef = await getDocs(query(this.collection, where("order", "==", orderId)));
-        if (docRef.docs.length === 0) {
-            const model = await this.add({orderId: orderId, count: 0, customId: standardId});
-            return model;
-        } else {
-            // Find the highest case number, based off of the customId
-            const cases = docRef.docs.map((doc) => doc.data());
-            const highestCase = cases.reduce((prev, current) => {
-                return (prev.customId > current.customId) ? prev : current
-            });
-            const highestCaseId = parseInt(highestCase.customId);
-            if(parseInt(standardId) > highestCaseId) {
-                const model = await this.add({orderId: orderId, count: 0, customId: standardId});
-                return model;
-            } else {
-                const model = await this.add({orderId: orderId, count: 0, customId: String(highestCaseId + 1)});
-                return model;
-            }
-        }
-    }
-    resyncCaseCount = async (model: Model): Promise<Model> => {
-        const q = query(new DevicesCollection(this.user).collection, where("caseId", "==", model.customId));
-        const devices = await getDocs(q);
-        const count = devices.docs.length;
-        model.count = count;
-        await this.update(model);
-        return model;
-    }
-}       
+	genCaseID = (): string => {
+		const now = new Date();
+		const year = now.getFullYear();
+		const month = String(now.getMonth() + 1).padStart(2, "0");
+		const day = String(now.getDate()).padStart(2, "0");
+		return `${year}${month}${day}001`;
+	};
+	nextCase = async (orderId: string): Promise<Model> => {
+		const standardId = this.genCaseID();
+		const docRef = await getDocs(query(this.collection, where("order", "==", orderId)));
+		if (docRef.docs.length === 0) {
+			const model = await this.add({ orderId: orderId, count: 0, customId: standardId });
+			return model;
+		} else {
+			// Find the highest case number, based off of the customId
+			const cases = docRef.docs.map((doc) => doc.data());
+			const highestCase = cases.reduce((prev, current) => {
+				return prev.customId > current.customId ? prev : current;
+			});
+			const highestCaseId = parseInt(highestCase.customId);
+			if (parseInt(standardId) > highestCaseId) {
+				const model = await this.add({ orderId: orderId, count: 0, customId: standardId });
+				return model;
+			} else {
+				const model = await this.add({ orderId: orderId, count: 0, customId: String(highestCaseId + 1) });
+				return model;
+			}
+		}
+	};
+	resyncCaseCount = async (model: Model): Promise<Model> => {
+		const q = query(new DevicesCollection(this.user).collection, where("caseId", "==", model.customId));
+		const devices = await getDocs(q);
+		const count = devices.docs.length;
+		model.count = count;
+		await this.update(model);
+		return model;
+	};
+}

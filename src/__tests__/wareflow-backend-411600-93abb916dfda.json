@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "wareflow-backend-411600",
+  "private_key_id": "93abb916dfdada04c1f3cb6869cbf2eeccce491b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC5C6/YGfIOKI10\nm2Lj7wTeYwzBR3NU/00VFaGQiz3Ss5pbnT9QXUWw3A/i/nCwNyAFc1QEctW72zYh\nmghSE1q2mkaBTSdGwWWoVseETt5z3dhrH2bV7X9Z2LYACNdks4NiL6SttNlBQsRs\nKueCASchUaBGOO6Vv1YKtAd6wGAlHDj5GlcfOKEsTG3MtVQ7Xr/SGJQEbmdzBnyP\nmzk/ruqyliW+UH4Xisgl+MITUl+PGRvdOfPTmMV9l45pGBhx241m4DJyk4AaK+xH\n4kdNTRrCdPK/vMWq8i4wNPb4+kVlQtP8CPI1zBTq53uR4hvSYSsUgMXuzZBLX43v\nQa8G6Zd1AgMBAAECggEACpmZnkVHi+Rqd1JgClLf/QXrLkveVpv0pES5HL4VMbOE\ndUNfOUZ2iQiPcmnai7BEtHs5m12hUmG0H/L3ug04xjq1LOVTXtFnoN/ZDa0KP388\nTU/0We8ruzpXm/iQWh48ZEylYCalcVXBSbmgHwmGM87otve+QbQUWjLw4L5nY4i5\nRaZjBhKLwrE7K8Vg8LBTBTYFI8iDK8zwbiKQLN0wOG/F/cJGz13S3eE3DI5l1EZU\n+t6RREX8fTAON+5F4pZE1M6AaDk/otP190V87u9bgKo04RRoYdBeFvRMr5GZNqB2\nH5EfUOT7Lok0sISKX22G4QnFzzzZsbX8zRWLVLCpEQKBgQD+J9NZVY6yYziT1XE9\nvd+LvkrPahkqEn2GSi+UqrvRFWAFp3yKpzN0xWTh4c90lheFz4I2GTanvoiUtfpF\nKpaFvKGZP1fuJY2MY+3VN+4GuX/Is+ykzt+ZP2Me4dN/Gc/9WmQdW/Y/slVkDSJ5\nOqm2LjGTW6hz5CepKxwscVENaQKBgQC6Y3e/U+HK4MkrQrooSJAOF7XsNmOKTD2e\nOGV+9PAGlJAemR9an+gRVPT2M1hFs0Ufi/s31bAWAZNf2b9Kit7UJyuXuuNLk8rW\ndWXYMXgNP5wamqdDCtK6Q79VA4b2GpnCI1w9JdM8h24DzrhSzNJKo7u716Snwiwv\ny0WK+oTcLQKBgQDYRF1U3Dfz1fhz26Fjz2kkyYVxH7BQG7HSjtgUIoB1d0HhLdcN\nSR/BEqM4juTwKTPU+nGrxSK79KbWHE/dgVLadFvyQnN5Q11ChFoCIHicIkb5KxmI\nWDzuc4DN644Dzpws0zjzvqg5JXACFicqj1+QlZg78zfRfei9y+BKdRZqWQKBgQCz\nslIw095MiotoedygGdVIwPNT2Nv+6aI+eIDh9aOztGd+GIJyDNjgXNgOxVHFYSCz\nWXHKUuqBTOOY9YXHiDtsrpcIodWhd8uHF4go9wiXPUxzGcdIi5a+nbJJdC0Z+Gtl\nEFJNYbpWEPuwEA0FRxM3gsPsRespEbsoGQHjC8QrwQKBgQDunnOoAtxH9rTqVcym\nY7UyvC/2bVwlOHqnhOmCLcNevBBcG523YW5LyenX7fV69rv0o+uRsGRtHXvXguiS\nie/SCnUa7LT428RCFbACTm38Tros8jgT+1glxfeUgMqfU3PX2LHmRUgNMYEDePgG\ndy+juRLCWUhW3ueFNyrMzxlssw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "wareflow-testing@wareflow-backend-411600.iam.gserviceaccount.com",
+  "client_id": "106813788643188038775",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/wareflow-testing%40wareflow-backend-411600.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

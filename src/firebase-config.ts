@@ -1,23 +1,27 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { FirebaseOptions, initializeApp } from "firebase/app";
+import { getAnalytics, isSupported } from "firebase/analytics";
+import { connectAuthEmulator, getAuth } from "firebase/auth";
+import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
+import config  from "./firebase.config.json";
+import { connectFunctionsEmulator, getFunctions } from "firebase/functions";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+const firebaseConfig: FirebaseOptions = config;
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-	apiKey: "AIzaSyBMVJCVpsLZkqL01_NxHWmju3e3qEC_9mI",
-	authDomain: "wareflow-backend.firebaseapp.com",
-	projectId: "wareflow-backend",
-	storageBucket: "wareflow-backend.appspot.com",
-	messagingSenderId: "388116318387",
-	appId: "1:388116318387:web:cf12e066213e63df9808c6",
-	measurementId: "G-LGJ5ZGM095",
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = isSupported().then(() => getAnalytics(app));
+const authPort = 9099;
+const firestorePort = 8080;
+const isDev = process.env.NODE_ENV === "development";
+if(isDev) {
+	connectAuthEmulator(getAuth(app), `http://localhost:${authPort}`) 
+	connectFirestoreEmulator(getFirestore(app), "localhost", firestorePort);
+	connectFunctionsEmulator(getFunctions(app), "localhost", 5001);
+}
 
 export { app, analytics}

@@ -1,31 +1,43 @@
 {
-  "name": "sample-tauri-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "tauri": "tauri"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.4",
-    "@mui/material": "^5.15.4",
-    "@tauri-apps/api": "^1.5.2",
-    "firebase": "^10.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.1"
-  },
-  "devDependencies": {
-    "@tauri-apps/cli": "^1.5.8",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.2.1",
-    "typescript": "^5.0.2",
-    "vite": "^5.0.0"
-  }
+	"name": "sample-tauri-app",
+	"private": true,
+	"version": "0.0.0",
+	"type": "commonjs",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"tauri": "tauri",
+		"emulate": "firebase emulators:start",
+		"start": "npm run emulate && npm run tauri dev",
+		"test": "jest"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.11.3",
+		"@emotion/styled": "^11.11.0",
+		"@mui/icons-material": "^5.15.4",
+		"@mui/material": "^5.15.4",
+		"@tauri-apps/api": "^1.5.2",
+		"firebase": "^10.7.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.21.1"
+	},
+	"devDependencies": {
+		"@firebase/testing": "^0.20.11",
+		"@tauri-apps/cli": "^1.5.8",
+		"@testing-library/jest-dom": "^6.2.0",
+		"@testing-library/react": "^14.1.2",
+		"@types/jest": "^29.5.11",
+		"@types/react": "^18.2.15",
+		"@types/react-dom": "^18.2.7",
+		"@vitejs/plugin-react": "^4.2.1",
+		"firebase-functions-test": "^3.1.0",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^29.7.0",
+		"jest-environment-jsdom": "^29.7.0",
+		"ts-jest": "^29.1.1",
+		"typescript": "^5.0.2",
+		"vite": "^5.0.0"
+	}
 }
